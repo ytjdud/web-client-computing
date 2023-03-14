@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>lab1-윤서영</title>
+  <style>
+    table, th, td {
+      border:1px solid #ccc;
+      border-collapse: collapse;
+    }
+    th, td { padding:10px 20px; }
+  </style>
+</head>
+<body>
+  <h1><b>배정시간표 작성하기</b></h1>
+  <table>
+    <caption>자바스크립트 프로그래밍 헬퍼 배정시간</caption>
+    <colgroup>
+      <col style="background-color:#eee;">
+      <col>
+      <col style="width:150px">
+      <col style="width:150px">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>요일/시간</th>
+        <th>2-3교시</th>
+        <th>4-5교시</t>
+        <th>6-7교시</th>
+        <th>8-9교시</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">월-화요일</td>
+        <td colspan="2">윤선영</td>
+        <td rowspan="2">홍길동</td>
+        <td rowspan="5">공백</td>
+      </tr>
+      <tr>
+        <td colspan="2">박영수</td>
+      </tr>
+      <tr>
+        <td rowspan="2">수-목요일</td>
+        <td rowspan="2">한나라</td>
+        <td rowspan="2">민영식</td>
+        <td>박영수</td>
+      </tr>   
+      <tr>
+        <td>윤선영</td>
+      </tr>
+      <tr>
+        <td>금요일</td>
+        <td colspan="3">김철수</td>
+      </tr>
+    </tbody>        
+  </table>
+</body>
+</html>
