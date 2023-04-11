@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어 쿼리 사용하기</title>
+  <link rel="stylesheet" href="css/nodelist.css">
+  <style>
+    body {
+      background: url(images/bg0.jpg) no-repeat fixed;
+      /* 기본 배경 이미지 지정 */
+      background-size: cover;
+    }
+
+    #container {
+      display: none;
+    }
+
+    @media screen and (max-width:1024px) {
+      body {
+        background: url(images/bg1.jpg) no-repeat fixed;
+        /* 가로가 1024px 이하면 bg1.jpg 지정 */
+        background-size: cover;
+      }
+    }
+
+    @media screen and (max-width:900px) {
+      body {
+        /* background: url(images/bg3.jpg) no-repeat fixed;  /* 가로가 768px 이하면 bg2.jpg 지정 */
+        /* background-size:cover; */
+        background: white;
+      }
+
+      #container {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width:708px) {
+      body {
+        background: url(images/bg2.jpg) no-repeat fixed;
+        background-size:cover;
+        /* background: white; */
+      }
+
+      #container {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width:400px) {
+      body {
+        background: url(images/bg3.jpg) no-repeat fixed;
+        /* 가로가 320px 이하면 bg3.jpg 지정 */
+        background-size: cover;
+      }
+    }
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요</p>
+    <p>공부가 끝난 것은 휴지통을 클릭해서 삭제할 수 있습니다</p>
+    <form action="">
+      <input type="text" id="subject" autofocus>
+      <button id="btn" onclick="newRegister(); return false;">추가</button>
+    </form>
+    <hr>
+    <ul id="itemList"></ul>
+
+    <div class="ad">
+      <span><img onmouseover="hvr()" src="images/balloon.png"></span>
+    </div>
+
+    <div id="divball" class="box">
+      <span><img id="ball" class="effect" src="images/ball.png"></span>
+    </div>
+  </div>
+
+  <script>
+    function hvr(){
+      const ball = document.getElementById("ball");
+      const span = document.querySelector(".box > span");
+
+      const duration = 900; // change this value to change the animation duration
+      const delay1 = -1 * duration;
+      const delay2 = duration;
+      const delay3 = duration + (2 * duration) / 2;
+      const delay4 = duration * 2 + (2 * duration) / 3;
+      const delay5 = duration * 2 + (2 * duration) / 3 + (2 * duration) / 4;
+
+      ball.animate(
+        [
+          { transform: "translateY(0)" },
+          { transform: "translateY(-160px)" }
+        ],
+        {
+          duration: duration,
+          easing: "cubic-bezier(.17,.76,.58,1)",
+          delay: delay1,
+          iterations: 2,
+          direction: "alternate"
+        }
+      );
+
+      ball.animate(
+        [
+          { transform: "translateY(0)" },
+          { transform: "translateY(-110px)" }
+        ],
+        {
+          duration: duration / 2,
+          easing: "cubic-bezier(.17,.76,.58,1)",
+          delay: delay2,
+          iterations: 2,
+          direction: "alternate"
+        }
+      );
+
+      ball.animate(
+        [
+          { transform: "translateY(0)" },
+          { transform: "translateY(-60px)" }
+        ],
+        {
+          duration: duration / 3,
+          easing: "cubic-bezier(.17,.76,.58,1)",
+          delay: delay3,
+          iterations: 2,
+          direction: "alternate"
+        }
+      );
+
+      ball.animate(
+        [
+          { transform: "translateY(0)" },
+          { transform: "translateY(-30px)" }
+        ],
+        {
+          duration: duration / 4,
+          easing: "cubic-bezier(.17,.76,.58,1)",
+          delay: delay4,
+          iterations: 2,
+          direction: "alternate"
+        }
+      );
+
+      ball.animate(
+        [
+          { transform: "translateY(0)" },
+          { transform: "translateY(-10px)" }
+        ],
+        {
+          duration: duration / 5,
+          easing: "cubic-bezier(.17,.76,.58,1)",
+          delay: delay5,
+          iterations: 2,
+          direction: "alternate"
+        }
+      );
+
+      span.animate(
+        [{ transform: "translateX(0)" }, { transform: "translateX(470px)" }],
+        {
+          duration: duration * 2 + (2 * duration) / 3 + (2 * duration) / 4 + (2 * duration) / 5,
+          easing: "linear",
+          fill: "forwards"
+        }
+      );
+    }
+
+    function newRegister() {
+      var newItem = document.createElement("li");  // 요소 노드 추가
+      var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
+      var newText = document.createTextNode(subject.value);  // 텍스트 필드의 값을 텍스트 노드로 만들기
+      newItem.appendChild(newText);   // 텍스트 노드를 요소 노드의 자식 노드로 추가
+
+      var itemList = document.querySelector("#itemList");  // 웹 문서에서 부모 노드 가져오기 
+      itemList.appendChild(newItem);  // 새로 만든 요소 노드를 부모 노드에 추가
+      newItem.onclick = function (newItem) {
+        const parentDiv = document.querySelector("#itemList");
+
+        parentDiv.addEventListener("click", (e) => {
+          e.target.remove();
+        });
+      }
+
+      subject.value = "";
+    }
+  </script>
+
+</body>
+
+</html>
