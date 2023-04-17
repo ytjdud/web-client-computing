@@ -27,3 +27,112 @@ function nextSlide() {
     current = 0;
     showSlides(current);  
 }
+
+function newRegister() {
+  var newItem = document.createElement("li");  // 요소 노드 추가
+  var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
+  var newText = document.createTextNode(subject.value);  // 텍스트 필드의 값을 텍스트 노드로 만들기
+  newItem.appendChild(newText);   // 텍스트 노드를 요소 노드의 자식 노드로 추가
+
+  var itemList = document.querySelector("#itemList");  // 웹 문서에서 부모 노드 가져오기 
+  itemList.appendChild(newItem);  // 새로 만든 요소 노드를 부모 노드에 추가
+  newItem.onclick = function (newItem) {
+    const parentDiv = document.querySelector("#itemList");
+
+    parentDiv.addEventListener("click", (e) => {
+      e.target.remove();
+    });
+  }
+
+  subject.value = "";
+}
+function hvr(){
+  const ball = document.getElementById("ball");
+  const span = document.querySelector(".box > span");
+
+  const duration = 900; // change this value to change the animation duration
+  const delay1 = -1 * duration;
+  const delay2 = duration;
+  const delay3 = duration + (2 * duration) / 2;
+  const delay4 = duration * 2 + (2 * duration) / 3;
+  const delay5 = duration * 2 + (2 * duration) / 3 + (2 * duration) / 4;
+
+  ball.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-160px)" }
+    ],
+    {
+      duration: duration,
+      easing: "cubic-bezier(.17,.76,.58,1)",
+      delay: delay1,
+      iterations: 2,
+      direction: "alternate"
+    }
+  );
+
+  ball.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-110px)" }
+    ],
+    {
+      duration: duration / 2,
+      easing: "cubic-bezier(.17,.76,.58,1)",
+      delay: delay2,
+      iterations: 2,
+      direction: "alternate"
+    }
+  );
+
+  ball.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-60px)" }
+    ],
+    {
+      duration: duration / 3,
+      easing: "cubic-bezier(.17,.76,.58,1)",
+      delay: delay3,
+      iterations: 2,
+      direction: "alternate"
+    }
+  );
+
+  ball.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-30px)" }
+    ],
+    {
+      duration: duration / 4,
+      easing: "cubic-bezier(.17,.76,.58,1)",
+      delay: delay4,
+      iterations: 2,
+      direction: "alternate"
+    }
+  );
+
+  ball.animate(
+    [
+      { transform: "translateY(0)" },
+      { transform: "translateY(-10px)" }
+    ],
+    {
+      duration: duration / 5,
+      easing: "cubic-bezier(.17,.76,.58,1)",
+      delay: delay5,
+      iterations: 2,
+      direction: "alternate"
+    }
+  );
+
+  span.animate(
+    [{ transform: "translateX(0)" }, { transform: "translateX(470px)" }],
+    {
+      duration: duration * 2 + (2 * duration) / 3 + (2 * duration) / 4 + (2 * duration) / 5,
+      easing: "linear",
+      fill: "forwards"
+    }
+  );
+}

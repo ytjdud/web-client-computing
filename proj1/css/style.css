@@ -10,6 +10,7 @@ a {
 }
 ul {
   list-style: none;
+
 }
 
 #container {
@@ -205,7 +206,8 @@ button:focus {
 }
 
 #tab1:checked ~ #notice, 
-#tab2:checked ~ #gallery {
+#tab2:checked ~ #gallery,
+#tab3:checked ~ #todolist {
   display:block;
 }
 
@@ -230,8 +232,8 @@ button:focus {
 #links ul li a span{
   display:block;  /* 블록 레벨로 */ 
   margin:0 auto;  /* 가운데 배치 */ 
-  width:150px;  /* 가로 크기 */ 
-  height:150px;  /* 세로 크기 */
+  width:120px;  /* 가로 크기 */ 
+  height:120px;  /* 세로 크기 */
   border-radius:100%;  /* 테두리 둥글게. border-radius: 150px로 해도 됨 */ 
   border:1px solid #ddd;  /* 테두리 스타일 */
   line-height:150px;  /* 수직으로 중간에 오게 */ 
@@ -261,6 +263,8 @@ footer{
   width:100%;   /* 너비 */
   height:100px;  /* 높이 */
   border-top:2px solid #222;
+  position : absolute;
+  bottom : 0;
 }
 #bottomMenu{
   width:100%;
@@ -299,3 +303,90 @@ p {
   font-size:14px;  /* 글자 크기 */
   color:#aaa;    /* 글자 색*/ 
 }
+input[type="text"] {
+  width:370px;
+  float:left;
+  height:25px;
+  padding-left:30px;
+}
+#btn {
+  position: relative;
+  width:80px;
+  height:25px;
+  padding: 0;
+  font-size: 15px;
+  /* float:right; */
+  background:#222;
+  color:#fff;
+  border:none;
+}
+#itemList li{
+  background-image: url('../images/trash.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: right center; 
+  line-height: 2.5;
+  width: 420px;
+}
+#itemList li:hover{
+  cursor: pointer;
+}
+.ad {
+  position:absolute;
+  right: 100px;
+  bottom: 95px;  
+  width: 70px;
+  height: 120px;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.ad img {
+  width: 70px;
+  height: 120px;
+  object-fit:cover;
+}
+
+.box {
+  position:absolute;
+  left: 25px;
+  bottom: 90px;
+  --d:0.8s; /*duration factor*/   
+  width: 525px;
+  height: 190px;
+  padding-top:50px;
+  display: flex;
+  align-items: flex-end;
+  overflow:hidden;
+}
+
+#ball {
+  width:30px;
+  animation-timing-function:cubic-bezier(.17,.76,.58,1);
+  animation-iteration-count:2;
+  animation-direction: alternate;
+  animation-name:t1,t2,t3,t4,t5;
+  animation-duration:
+      var(--d),
+      calc(var(--d)/2),
+      calc(var(--d)/3),
+      calc(var(--d)/4),
+      calc(var(--d)/5);
+  animation-delay: 
+      calc(var(--d)*-1), 
+      calc(var(--d)), 
+      calc(var(--d)   + 2*var(--d)/2), 
+      calc(var(--d)*2 + 2*var(--d)/3), 
+      calc(var(--d)*2 + 2*var(--d)/3 + 2*var(--d)/4); 
+}
+
+.box > span {
+  animation:m calc(var(--d)*2 + 2*var(--d)/3 + 2*var(--d)/4 + 2*var(--d)/5) linear forwards;
+}
+@keyframes t1{to {transform:translateY(-160px)}}
+@keyframes t2{to {transform:translateY(-110px)}}
+@keyframes t3{to {transform:translateY(-60px)}}
+@keyframes t4{to {transform:translateY(-30px)}}
+@keyframes t5{to {transform:translateY(-10px)}}
+
+@keyframes m{to {transform:translateX(470px)}}
