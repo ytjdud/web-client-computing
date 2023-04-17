@@ -100,19 +100,24 @@ nav{
 /*   이미지 슬라이드 쇼 영역    */
 /********************************/
 
-#slideShow {   
+#slides {   
   clear:both;   /* 플로팅 해제 */
-  width:100%;    /* 너비 */ 
+  width: 100%;    /* 너비 */ 
   height:300px;   /* 높이 */ 
   overflow:hidden;   /* 영역 넘치면 감춤 */ 
   position: relative;
 }
-#slides {
+#slideContainer {
   position: absolute;
+  width: 6000px;
+  height: 300px;
+  display: flex;
+  left:0px;
+  transition: all 2s ease-in-out;  
 }
-#slides > img {
-  width:100%;  /* 너비 */
-  float:left;  /* 가로로 배치 */
+#slideContainer > img {
+  width:100%; 
+  float:left;
 }
 
 button{
@@ -140,6 +145,7 @@ button{
   top: 0;
   font-weight:100;
   color: grey;
+  cursor: pointer;
 }
 #no1 {
   left: calc(50% - 60px);
