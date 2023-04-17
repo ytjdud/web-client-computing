@@ -304,7 +304,7 @@ p {
   color:#aaa;    /* 글자 색*/ 
 }
 input[type="text"] {
-  width:370px;
+  width:465px;
   float:left;
   height:25px;
   padding-left:30px;
@@ -326,7 +326,7 @@ input[type="text"] {
   background-size: 25px;
   background-position: right center; 
   line-height: 2.5;
-  width: 420px;
+  width: 520px;
 }
 #itemList li:hover{
   cursor: pointer;
@@ -352,7 +352,7 @@ input[type="text"] {
   left: 25px;
   bottom: 90px;
   --d:0.8s; /*duration factor*/   
-  width: 525px;
+  width: 500px;
   height: 190px;
   padding-top:50px;
   display: flex;
