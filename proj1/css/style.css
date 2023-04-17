@@ -332,9 +332,9 @@ input[type="text"] {
   cursor: pointer;
 }
 .ad {
-  position:absolute;
-  right: 100px;
-  bottom: 95px;  
+  position:relative;
+  float: left;
+  top: 90px;
   width: 70px;
   height: 120px;
   overflow:hidden;
@@ -342,13 +342,13 @@ input[type="text"] {
 }
 
 .ad img {
-  width: 70px;
-  height: 120px;
+  width: 56px;
+  height: 96px;
   object-fit:cover;
 }
 
 .box {
-  position:absolute;
+  float: left;
   left: 25px;
   bottom: 90px;
   --d:0.8s; /*duration factor*/   
@@ -361,7 +361,7 @@ input[type="text"] {
 }
 
 #ball {
-  width:30px;
+  width:22px;
   animation-timing-function:cubic-bezier(.17,.76,.58,1);
   animation-iteration-count:2;
   animation-direction: alternate;
