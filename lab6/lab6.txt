@@ -1,0 +1,18 @@
+(실습6) AJAX - XMLHttpRequest 실습
+---------------------------------------
+
+(준비작업)
+  (1) 네이버 개발자 사이트(https://developers.naver.com)에서 APP 등록 및 Key 발급
+  (2) code runner로 프록시 서버("node proxy.js") 실행
+
+제공 프로그램들(user-json-AJAX.html, user-json-AJAX.js, css/user-json-AJAX.css)을 참조하여, 완성 프로그램(user-json-AJAX.html)을 실행하였을 때 
+브라우저화면이 각각 첨부파일 이미지((실습6) 중간결과(정렬전).png, (실습6) 최종결과(정렬후).png)와 
+같이 브라우저에 출력되도록, 제공 프로그램(user-json-AJAX.html, user-json-AJAX.js, css/user-json-AJAX.css)을 
+제출 프로그램(book-json-AJAX.html, book-json-AJAX.js, css/book-json-AJAX.css)으로 복사한 다음, 
+HTML/CSS/Javascript 기능을 (추가&변경)->(완성)->(제출)하라.
+
+  (제공폴더(lab6 --> lab6.zip안에 있음) 내 프로그램)  user-json-AJAX.html, user-json-AJAX.js, css/user-json-AJAX.css
+
+  (이미지 파일)
+    - (실습6) 중간결과(정렬전).png
+    - (실습6) 최종결과(정렬후).png
