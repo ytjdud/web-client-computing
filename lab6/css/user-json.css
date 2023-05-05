@@ -1,6 +1,7 @@
 table {
   display:inline-block; /* 한줄에 여러개 출력 공간이 허용하는 만큼*/
   width:300px;
+  height: 199.44px;
   margin:10px;
 }
 table, td, th {
