@@ -22,7 +22,11 @@ async function init() {
       // (발행일 기준 올림차순으로 객체 정렬하는 실행문 위치임)
       // (힌트2) 배열전용 내부메소드(sort())에 정렬 비교를 위한 함수등록을 하여 정렬하는 것이 효과적임
       //            구글링으로 내부메소드 사용방법을 이해한 후 현재 위치에 적용함.
-      console.log(users);
+      function customSort(a, b) {
+        if(a.pubdate == b.pubdate){ return 0} return  a.pubdate > b.pubdate ? 1 : -1;
+      }
+      users.items.sort(customSort);
+      console.log(users.items);
       display(users);
     }
   };
