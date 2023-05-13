@@ -2,13 +2,13 @@
 async function init() {
   const response = await fetch('http://localhost:8090/https://www.hanbit.co.kr/store/books/new_book_list.html', {
   headers: {
-    "X-Requested-With": "XMLHttpRequest"
+    "X-Requested-With": "XMLHttpRequest" // fetch 매개변수에 보안옵션이 들어간것임.
   }
 });
-const body = response.text().then(function(html){
+const body = response.text().then(function(html){ // text 로 소스 받아옴
   var html_dom = new DOMParser().parseFromString(html,'text/html');
   console.log(html_dom.body);
-  var books = html_dom.querySelectorAll(".view_box");
+  var books = html_dom.querySelectorAll(".view_box"); // 20권 정보니까 쿼리셀렉터All
   console.log(books);
   display(books);
 });
