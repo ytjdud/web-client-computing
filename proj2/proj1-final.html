@@ -51,7 +51,7 @@
         <div loc="4" class="buttons">4</div>
         <div loc="5" class="buttons">5</div>
       </div>
-  </div>
+    </div>
     <div id="contents">
       <div id="tabMenu">
         <input type="radio" id="tab1" name="tabs" checked>
@@ -59,7 +59,9 @@
         <input type="radio" id="tab2" name="tabs">
         <label for="tab2">갤러리</label>      
         <input type="radio" id="tab3" name="tabs">
-        <label for="tab3">할일리스트</label>      
+        <label for="tab3">할일리스트</label>
+        <input type="radio" id="tab4" name="tabs">
+        <label for="tab4">상영영화</label>         
         <div id="notice" class="tabContent">
           <h2>공지사항 내용입니다.</h2>
           <ul>            
@@ -103,6 +105,50 @@
             <div class="div"></div>
             <div class="div2"></div>
           </div>
+        </div>
+        <div id="movie" class="tabContent" style="overflow:auto; height:500px; width: 520px;">
+          <h2>RESTful movie data service</h2>
+          <fieldset>
+            <legend>REST기능</legend>
+            <p>데이터 처리 기능을 선택하세요.</p>
+            <label><input type="radio" class="sel" name="subject" value="get_all">읽기(전체)</label>
+            <label><input type="radio" class="sel" name="subject" value="get_id">읽기(1명)</label>
+            <label><input type="radio" class="sel" name="subject" value="post">쓰기</label>       
+            <label><input type="radio" class="sel" name="subject" value="put">수정</label>       
+            <label><input type="radio" class="sel" name="subject" value="delete">삭제</label>       
+          </fieldset>
+          <fieldset>
+            <legend>입력데이터</legend>
+            <ul id="inputData">
+              <li>       	
+                <label class="data" for="id">ID</label>
+                <input type="text" id="id" name="id" maxlength="20" style="width: 350px;">               
+              </li>
+              <li>       	
+                <label class="data" for="title">제목</label>
+                <input type="text" id="name" name="name" maxlength="20" style="width: 350px;">               
+              </li>
+              <li>       	
+                <label class="data" for="genre">장르</label>
+                <input type="text" id="genre" name="genre" maxlength="20" style="width: 350px;">               
+              </li>
+              <li>       	
+                <label class="data" for="rate">평점</label>
+                <input type="text" id="rate" name="rate" maxlength="20" style="width: 350px;">               
+              </li>
+              <li>       	
+                <label class="data" for="actor">출연</label>
+                <input type="text" id="actor" name="actor" maxlength="20" style="width: 350px;">               
+              </li>
+              <li>       	
+                <label class="data" for="poster">포스터</label>
+                <input type="text" id="poster" name="poster" maxlength="20" style="width: 350px;">               
+              </li>
+            </ul>				
+          </fieldset>
+          <button id="send">전송하기</button> <br>
+          <label for="result">결과</label>
+          <!-- <textarea id="result" cols="48" rows="20"></textarea> -->
         </div>
       </div>
       <div id="links">
