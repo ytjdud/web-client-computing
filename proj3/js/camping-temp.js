@@ -15,7 +15,7 @@ async function drawMap() {
   var clusterer = new kakao.maps.MarkerClusterer({
     map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
     averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
-    minLevel: 1 // 클러스터 할 최소 지도 레벨 
+    minLevel: 10 // 클러스터 할 최소 지도 레벨 
   });
 
   // 오픈 데이터 서버에서 캠핑장 정보 가져오기
@@ -26,7 +26,7 @@ async function drawMap() {
   var markers = [];
   for(let i = 0; i < campingSite.length; i++) { 
     // 주소 변환
-    var query = encodeURI(campingSite[i].address);
+    var query = encodeURI(campingSite[i].area + campingSite[i].address);
     const response = await fetch(`https://dapi.kakao.com/v2/local/search/address.json?analyze_type=similar&page=1&size=10&query=${query}`, {
       headers:  {
                   "Authorization": "KakaoAK ade06750b94c8bbd14fd3a4053a7c360"
@@ -35,28 +35,27 @@ async function drawMap() {
     const data = await response.json();
     const locations = data.documents;
     console.log(locations);
-    // if(locations.length>0)
-      // string += display(locations[0]);
+    if(locations.length>0){
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(locations[0].address.y, locations[0].address.x)
+      });
 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-      map: map,
-      position: new kakao.maps.LatLng(locations[0].address.y, locations[0].address.x)
-    });
+      markers.push(marker);   // 마커를 배열에 추가합니다
 
-    markers.push(marker);   // 마커를 배열에 추가합니다
+      var infowindow = new kakao.maps.InfoWindow( {
+        content : campingSite[i].facltNm   // 인포윈도우에 표시할 내용
+      });
 
-    var infowindow = new kakao.maps.InfoWindow( {
-      content : campingSite[i].facltNm   // 인포윈도우에 표시할 내용
-    });
-
-    // 마커에 이벤트를 등록합니다
-    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-    // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-    // 마커에 마우스오버하면 makeOverListener() 실행
-    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));  
-    // 마커에서 마우스아웃하면 makeOutListener() 실행
-    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));   
+      // 마커에 이벤트를 등록합니다
+      // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+      // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+      // 마커에 마우스오버하면 makeOverListener() 실행
+      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));  
+      // 마커에서 마우스아웃하면 makeOutListener() 실행
+      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    }   
   }
 
   clusterer.addMarkers(markers);
