@@ -45,7 +45,8 @@ async function drawMap() {
       markers.push(marker);   // 마커를 배열에 추가합니다
 
       var infowindow = new kakao.maps.InfoWindow( {
-        content : campingSite[i].facltNm   // 인포윈도우에 표시할 내용
+        content : `${campingSite[i].title} (${campingSite[i].openday})\n${locations[0].address_name}\n위도: ${locations[0].address.y} 경도: ${locations[0].address.y}`
+        // 시장이름(몇일장) 도로명주소 위도 경도
       });
 
       // 마커에 이벤트를 등록합니다
