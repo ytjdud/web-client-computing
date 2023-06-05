@@ -15,6 +15,8 @@ window.addEventListener('load', function(){
     const wid = document.querySelector('#wid');
     const context = canvas.getContext('2d');
 
+    const penColor = document.querySelector('#penColor');
+
     // 마우스 이벤트를 연결합니다.
     canvas.addEventListener('mousedown', function (event) {
         isDown = true;
@@ -56,6 +58,7 @@ window.addEventListener('load', function(){
     pen.addEventListener('click', function(event) {
         width = 1;
         color = 'black';
+        penColor.value = color;
         wid.value=width;
     });
 
@@ -67,6 +70,10 @@ window.addEventListener('load', function(){
 
     wid.addEventListener('change', function(event) {
         width=wid.value;
+    });
+
+    penColor.addEventListener('change', function(event) {
+        color=penColor.value;
     });
 
     // 소켓 이벤트를 연결합니다.
