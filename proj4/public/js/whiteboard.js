@@ -16,6 +16,7 @@ window.addEventListener('load', function(){
     const context = canvas.getContext('2d');
 
     const penColor = document.querySelector('#penColor');
+    const reset = document.querySelector('#reset');
 
     // 마우스 이벤트를 연결합니다.
     canvas.addEventListener('mousedown', function (event) {
@@ -74,6 +75,11 @@ window.addEventListener('load', function(){
 
     penColor.addEventListener('change', function(event) {
         color=penColor.value;
+    });
+
+    reset.addEventListener('click', function(event){
+        const rect = canvas.getBoundingClientRect();
+        context.clearRect(0,0,rect.width,rect.height)
     });
 
     // 소켓 이벤트를 연결합니다.
